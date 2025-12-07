@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.shakeWrapper {
+  display: inline-block;
+}
+
+/* Continuous slow shake */
+.coffee {
+  animation: slowShake 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Smooth slow rotational shake */
+@keyframes slowShake {
+  0%   { transform: rotate(0deg) translateY(0px); }
+  25%  { transform: rotate(2deg) translateY(-2px); }
+  50%  { transform: rotate(0deg) translateY(0px); }
+  75%  { transform: rotate(-2deg) translateY(2px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
