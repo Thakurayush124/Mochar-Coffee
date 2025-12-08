@@ -3,6 +3,7 @@ import Navbar from "@/components/ui/header";
 import Menu from "@/components/CoffeeMenu";
 import Footer from "@/components/ui/Footer";
 import WhiteSpace from "@/components/ui/whiteSpace";
+import Foods from "@/components/available";
 
 export default function Home() {
   return (
@@ -17,6 +18,10 @@ export default function Home() {
 
       <section>
         <WhiteSpace />
+      </section>
+
+      <section>
+        <Foods />
       </section>
 
       <section>

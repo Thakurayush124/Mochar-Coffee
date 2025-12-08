@@ -166,7 +166,6 @@ export default function Hero() {
         <h3 className="text-4xl uppercase font-semibold">a brewing coffee shop</h3>
         <Link href="/" className="text-xl text-white px-6 rounded-2xl py-4 bg-black uppercase">Make Your Order</Link>
       </div>
-
     </section>
   );
 }
