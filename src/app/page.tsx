@@ -3,6 +3,7 @@ import Navbar from "@/components/ui/header";
 import Menu from "@/components/CoffeeMenu";
 import Footer from "@/components/ui/Footer";
 import WhiteSpace from "@/components/ui/whiteSpace";
+import CatchUs from "@/components/catch-us";
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
 
       <section>
         <Menu />
+      </section>
+
+      <section>
+        <CatchUs />
       </section>
 
       <section>
