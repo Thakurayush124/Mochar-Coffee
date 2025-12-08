@@ -5,7 +5,7 @@ import Footer from "@/components/ui/Footer";
 import WhiteSpace from "@/components/ui/whiteSpace";
 import Foods from "@/components/available";
 import CatchUs from "@/components/catch-us";
-
+import Choice from "@/components/chose-us";
 export default function Home() {
   return (
     <main>
@@ -29,6 +29,10 @@ export default function Home() {
         <Menu />
       </section>
 
+      <section>
+        <Choice />
+      </section>
+      
       <section>
         <CatchUs />
       </section>
