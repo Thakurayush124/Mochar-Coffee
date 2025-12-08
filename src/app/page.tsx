@@ -2,6 +2,7 @@ import Hero from "@/components/hero";
 import Navbar from "@/components/ui/header";
 import Menu from "@/components/CoffeeMenu";
 import Footer from "@/components/ui/Footer";
+import WhiteSpace from "@/components/ui/whiteSpace";
 
 export default function Home() {
   return (
@@ -12,6 +13,10 @@ export default function Home() {
 
       <section>
         <Hero />
+      </section>
+
+      <section>
+        <WhiteSpace />
       </section>
 
       <section>
