@@ -16,7 +16,7 @@ export default function CoffeeHero() {
     const ctx = gsap.context(() => {
       // Initial state: larger and tilted
       gsap.set(outerRef.current, {
-        scale: 1.4,
+        scale: 2,
         rotate: -15,
         transformOrigin: "50% 60%",
       });
@@ -59,7 +59,7 @@ export default function CoffeeHero() {
       className="h-[200vh] w-full flex items-center justify-center bg-white"
     >
       {/* OUTER WRAPPER (Scroll-controlled) */}
-      <div ref={outerRef} className="relative w-[350px] h-[350px]">
+      <div ref={outerRef} className="relative w-[350px] h-[350px] -mt-50">
 
         {/* INNER WRAPPER (Shake-controlled) */}
         <div ref={innerRef} className="w-full h-full">
