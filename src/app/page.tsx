@@ -4,6 +4,7 @@ import Menu from "@/components/CoffeeMenu";
 import Footer from "@/components/ui/Footer";
 import WhiteSpace from "@/components/ui/whiteSpace";
 import Foods from "@/components/available";
+import CatchUs from "@/components/catch-us";
 
 export default function Home() {
   return (
@@ -26,6 +27,10 @@ export default function Home() {
 
       <section>
         <Menu />
+      </section>
+
+      <section>
+        <CatchUs />
       </section>
 
       <section>
