@@ -8,60 +8,82 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CoffeeHero() {
-  const outerRef = useRef<HTMLDivElement | null>(null); // scroll rotation + scale
-  const innerRef = useRef<HTMLDivElement | null>(null); // shaking
+  const outerRef = useRef<HTMLDivElement | null>(null);
+  const innerRef = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const mochaRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Initial state: larger and tilted
-      gsap.set(outerRef.current, {
-        scale: 2,
-        rotate: -15,
-        transformOrigin: "50% 60%",
-      });
 
-      // Scroll animation: rotate more while scrolling down and scale down smoothly
+
+
       gsap.to(outerRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top",
-          // animate while the section scrolls through the viewport
+          start: "top +=300 top",
           end: "bottom top",
           scrub: 0.6,
         },
-        // final visual state while scrolling down
         scale: 0.85,
-        // rotate to a larger angle as the user scrolls down
         rotate: 40,
+        y: 450,
         ease: "none",
       });
 
-      // Keep a subtle infinite shake on the inner cup for life; this remains
-      // but is less aggressive visually once scaled down.
+      // Mocha fade & drop
+      gsap.fromTo(mochaRef.current,
+        { opacity: 0, y: -100 },
+        {
+          opacity: 100,
+          y: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top+=200",
+            end: "center top",
+            scrub: 1.2,
+          },
+          ease: "power1.out",
+        }
+      );
+
+      // Shake animation
       gsap.to(innerRef.current, {
-        x: 6,
-        y: -4,
-        rotateZ: 1.5,
-        duration: 2.6,
-        yoyo: true,
-        repeat: -1,
+        x: 6, y: -4, rotateZ: 1.5,
+        duration: 2.6, repeat: -1, yoyo: true,
         ease: "sine.inOut",
       });
-    });
 
+    });
     return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="h-[200vh] w-full flex items-center justify-center bg-white"
+      className="h-[170vh] w-full flex items-center justify-center bg-white relative"
     >
-      {/* OUTER WRAPPER (Scroll-controlled) */}
-      <div ref={outerRef} className="relative w-[350px] h-[350px] -mt-50">
 
-        {/* INNER WRAPPER (Shake-controlled) */}
+      {/* Faded Hero BG Image */}
+      <div ref={mochaRef} className="absolute top-[10%] w-full flex justify-center">
+        <Image
+          src="/hero-bg.png"
+          width={1000}
+          height={200}
+          alt="Mocha"
+          className="opacity-80 pointer-events-none select-none"
+        />
+      </div>
+
+      {/* Coffee Cup */}
+      <div
+        ref={outerRef}
+        className="relative w-[350px] h-[250px]"
+        style={{
+          transform: "scale(2.7) rotate(-15deg) translateY(-50px)", // <<< initial state FIXED HERE
+          transformOrigin: "50% 60%",
+        }}
+      >
         <div ref={innerRef} className="w-full h-full">
           <Image
             src="/coffee.webp"
@@ -70,8 +92,8 @@ export default function CoffeeHero() {
             className="object-contain pointer-events-none"
           />
         </div>
-
       </div>
+
     </section>
   );
 }
