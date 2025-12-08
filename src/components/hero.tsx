@@ -1,13 +1,12 @@
 "use client";
-
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function CoffeeHero() {
+export default function Hero() {
   const outerRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -64,15 +63,8 @@ export default function CoffeeHero() {
       className="h-[170vh] w-full flex items-center justify-center bg-white relative"
     >
 
-      {/* Faded Hero BG Image */}
+      {/* Faded Hero BG */}
       <div ref={mochaRef} className="absolute top-[10%] w-full flex justify-center">
-        <Image
-          src="/hero-bg.png"
-          width={1000}
-          height={200}
-          alt="Mocha"
-          className="opacity-80 pointer-events-none select-none"
-        />
       </div>
 
       {/* Coffee Cup */}

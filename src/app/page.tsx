@@ -1,17 +1,26 @@
-import Land from '@/components/land';
-import Nav from '@/components/ui/header';
-import Menu from '@/components/CoffeeMenu';
-import Footer from '@/components/ui/Footer';
-
-
+import Hero from "@/components/hero";
+import Navbar from "@/components/ui/header";
+import Menu from "@/components/CoffeeMenu";
+import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
-    <>
-    <Nav/>
-    <Land/>
-    <Menu/>
-    <Footer/>
-    </>
+    <main>
+      <section>
+        <Navbar />
+      </section>
+
+      <section>
+        <Hero />
+      </section>
+
+      <section>
+        <Menu />
+      </section>
+
+      <section>
+        <Footer />
+      </section>
+    </main>
   );
 }

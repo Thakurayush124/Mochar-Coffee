@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function MocharFooter() {
+export default function Footer() {
   return (
     <div className="bg-[#0d0d0d] text-white w-full py-20 px-6 flex flex-col select-none">
 

@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function CoffeeMenu() {
+export default function Menu() {
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white flex flex-col items-center py-10 px-6">
       <h3 className="flex items-center gap-2 uppercase text-sm text-gray-400 mb-2 tracking-wide">☕ Our Menu</h3>
